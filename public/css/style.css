@@ -1,0 +1,32 @@
+.lang-select{
+	  float: left;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: #777;
+}
+
+.c-body{
+	display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+.well{
+    background: #dff0d8;
+    padding: 20px !important
+
+
+}
+.well img{
+width: 100%;
+height: auto;
+}
+.actions input{
+	margin:10px 0;
+}
+.field input[type="text"]{
+	margin-bottom:20px;
+	width:300px;
+	height:35px;
+
+}

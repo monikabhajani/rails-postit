@@ -1,0 +1,37 @@
+<h3><%= t('posts')%></h3>
+
+	
+<% if !@posts.nil? && !@posts.blank? %>
+
+	<% @posts.each do |post|%>
+	<% category = CategoryType.where("id=?", post.category_id).select("category_name").first%>
+		
+		<div class="well clearfix">
+
+			<div class="col-md-4 col-xs-12">
+				<% if !post.feature_image.nil?%>
+					<img src="/images/<%= post.feature_image%>" class="img-responsive"> 
+				<%else%>
+					<img src="/images/abc.jpg" class="img-responsive">
+				<%end%>
+			</div>
+
+			<div class="col-md-8 col-xs-12">
+				<h3><%= post.title%></h3>
+				<label disabled = "true"><%= category.category_name%></label>
+				<p class="c-body"><%= post.body%></p>
+
+				<%=link_to t('read_more'), post_path(post), :class => 'btn btn-default' %>
+			</div>	
+
+		</div>
+
+	<%end%>
+
+<%else%>
+	<div class="well clearfix">
+		<p><%= t('no_post_msg')%></p>
+	</div>
+
+<%end%>
+
