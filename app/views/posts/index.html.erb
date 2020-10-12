@@ -1,5 +1,9 @@
 <h3><%= t('posts')%></h3>
-
+	<select class="lang-select">
+	    <option><%= t('change_lang')%></option>
+	    <option><%= link_to "English", home_path(locale: :en) %></option>
+	    <option><%= link_to "Français", home_path(locale: :fr) %></option>
+	</select>
 	
 <% if !@posts.nil? && !@posts.blank? %>
 
@@ -18,7 +22,7 @@
 
 			<div class="col-md-8 col-xs-12">
 				<h3><%= post.title%></h3>
-				<label disabled = "true"><%= category.category_name%></label>
+				<label class="type-b" disabled = "true"><%= category.category_name%></label>
 				<p class="c-body"><%= post.body%></p>
 
 				<%=link_to t('read_more'), post_path(post), :class => 'btn btn-default' %>
@@ -35,3 +39,20 @@
 
 <%end%>
 
+<script>
+      $(document).ready(function(){
+         
+          $('.lang-select').change(function(){
+
+            var lan = $('.lang-select').val();
+            
+              if (lan == "English"){
+                window.location.href = "/en";
+              }   
+              else if(lan == "Français"){
+                window.location.href = "/fr";
+              }
+          });
+      });
+
+</script>

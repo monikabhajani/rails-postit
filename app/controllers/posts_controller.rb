@@ -14,11 +14,6 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		# puts "================image111111111111111==============="
-		# puts params[:post][:title].inspect
-		# puts params[:post][:feature_image].original_filename.inspect
-		
-		
 
 		@post = Post.new(post_params)
 		@post.feature_image = params[:post][:feature_image].original_filename
@@ -39,7 +34,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		
 		if(@post.update(post_params))
-			if(!params[:post][:feature_image].original_filename.nil?)
+			if(!params[:post][:feature_image].nil?)
 				@post.feature_image = params[:post][:feature_image].original_filename
 				@post.save
 				redirect_to @post

@@ -1,14 +1,18 @@
 
+
+<br><br>
+<div class="well clearfix">
 <% category = CategoryType.where("id=?", @post.category_id).select("category_name").first%>
 	<div class="col-md-4 col-xs-12">
 			<img src="/images/<%= @post.feature_image%>" class="img-responsive">
 	</div>
 
 	<div class="col-md-8 col-xs-12">
-		<h2><%= @post.title%></h2>
-		<label disabled = "true"> <%= category.category_name%></label>
+		<h3><%= @post.title%></h3>
+		<label class="type-b" disabled = "true"> <%= category.category_name%></label>
 		<p><%= @post.body%></p>
 		<hr>
 		<%= link_to t('edit_button'), edit_post_path(@post), :class => 'btn btn-default' %>
 		<%= link_to t('delete_button'), post_path(@post), method: :delete, data:{confirm: 'Do you want to delete the post?'}, :class => 'btn btn-danger' %>
 	</div>
+</div>
